@@ -82,13 +82,6 @@ public class Character implements Group{
 		return 0;
 	}
 
-	/*
-	public List<Character> sortCharacters() {
-		Comparator<Character> cp = Character.getComparator(Character.SortParameter.AKA_DES);
-		Collections.sort(Game.allCharacters,cp);
-		return Game.allCharacters;
-	}
-	*/
 	
 	@Override
 	public String toString() {
