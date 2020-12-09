@@ -1,0 +1,10 @@
+
+Character [realName=Izuku Midoriya, aka=Deku, stats=Stats [strength=20, agility=10, intelligence=5, defense=5, vitality=5, critical=0], isHero=true, abilities=[]]
+
+Character [realName=Toshinori Yagi, aka=All Might, stats=Stats [strength=50, agility=50, intelligence=25, defense=15, vitality=15, critical=20], isHero=true, abilities=[]]
+
+Character [realName=Ochaco Uraraka, aka=Uravity, stats=Stats [strength=10, agility=3, intelligence=0, defense=5, vitality=5, critical=15], isHero=true, abilities=[]]
+
+Character [realName=Fumikage Tokoyami, aka=Jet-Black, stats=Stats [strength=15, agility=6, intelligence=0, defense=25, vitality=25, critical=15], isHero=true, abilities=[]]
+
+Character [realName=Himiko Toga, aka=Toga, stats=Stats [strength=20, agility=2, intelligence=50, defense=5, vitality=1, critical=2], isHero=false, abilities=[]]
