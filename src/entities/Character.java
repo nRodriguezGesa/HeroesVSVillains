@@ -96,14 +96,7 @@ public class Character implements Group{
 			return true;
 		return false;
 	}
-	/*
-	public static Comparator<Character> getComparator(SortParameter){
-		return new CharacterComparator(sortParameters);
-	}
-	*/
-
-
-
+	
 	@Override
 	public String getFictionName() {
 		return this.aka;

@@ -18,7 +18,6 @@ import java.util.Comparator;
 		@Override
 		public int compare(Character ch1, Character ch2) {
 			int comparison;
-			int equalsCounter = 0;
 			int b1;
 			int b2;
 			
@@ -75,12 +74,12 @@ import java.util.Comparator;
 				case NAME_ASC:
 					comparison = ch2.getRealName().compareTo(ch1.getRealName());
 					if(comparison!=0) return comparison;
-					equalsCounter++;
+			
 					break;
 				case NAME_DES:
 					comparison = ch1.getRealName().compareTo(ch2.getRealName());
 					if(comparison!=0) return comparison;
-					equalsCounter++;
+				
 					break;
 				case AKA_ASC:
 					comparison = ch2.getAka().compareTo(ch1.getAka());
@@ -95,14 +94,14 @@ import java.util.Comparator;
 					b2 = ch2.getSide()? 1:0;
 					comparison = b2-b1;
 					if(comparison !=0)return comparison;
-					equalsCounter++;
+				
 					break;
 				case ISHERO_DES:
 					 b1 = ch1.getSide()? 1:0;
 					 b2 = ch2.getSide()? 1:0;
 					comparison = b2-b1;
 					if(comparison !=0)return comparison;
-					equalsCounter++;
+				
 					break;
 			
 				}

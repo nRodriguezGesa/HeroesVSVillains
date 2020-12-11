@@ -1,121 +1,81 @@
 Responsabilidades de las clases:
 
-La clase Game es la clase principal del programa, contendra por lo menos
-2 equipos(1 de heroes y otro de villanos) que lucharan entre si . 
-El programa no permite que 2 equipos de heroes peleen entre si.
+La clase Game sera la clase main del programa, dentro de esta se daran las peleas entre 
+heroes y villanos.
 
-Las peleas se desarrollaran por turnos, donde en cada turno 
-luchara 1 heroe vs 1 villano . Ganara el personaje que ,mediante un 
-calculo de las estadisticas, obtenga un valor de poder mayor al otro.
-Adjunto una imagen que facilitara el entendimiento y calculo de dichos 
-valores de poder.
-El personaje perdedor luego podra enfrentarse nuevamente a otro personaje
-del equipo contrario. Ganara el equipo que logre ganar peleas con todos
-sus integrantes
-Un ejemplo de una pelea:
+Como atributos esta clase tendra 2 listas estaticas que contedran 
+todos los personajes y todos los equipos que se creen.
 
-Equipo Heroes. 
-Integrantes:
-HeroeA
-HeroeB
-HeroeC
+Metodos:
+fightByStat : A este metodo recibe como parametros 2 personajes o equipos de diferentes bandos, 
+los cuales lucharan entre si. Ademas recibira un String que representara el atributo que decidira 
+el ganador de la pelea. En caso de empate en dichos atributos, se realizara la comparacion entre otros atributos.
+Y si todos los atributos de los luchadores son iguales, se declarara un empate.
 
-Equipo Villanos.
-Integrantes:
-VillanoA
-VillanoB
-VillanoC
+fight: Este metodo es similar al metodo anterior, la diferencia es que se comparan todos los atributos
+desde el inicio. El empate tambien se dara igual que en el metodo anterior
 
-Ronda1:(el programa los elegira aleatoriamente, en este caso utilizaremos
-un orden para facilitar el ejemplo)
+whoBeats: Este metodo recibe por parametro a un personaje y devuelve una lista con todos los personajes 
+y equipos que vencen a dicho personaje teniendo en cuenta todos los atributos
 
-HeroeA 
-vs
-VillanoA
-
-Gana HeroeA, por lo tanto no podra volver a pelear
-
-Ronda2
-
-Equipo Heroes.
-Integrantes:
-HeroeA //gano
-HeroeB
-HeroeC
-
-Equipo Villanos
-Integrantes:
-VillanoA
-VillanoB
-VillanoC
-
-HeroeB vs VillanoA
-
-Gano VillanoA, por lo tnato no podra volver a pelear
-
-Ronda3
-
-Equipo Heroes.
-Integrantes:
-HeroeA //gano
-HeroeB
-HeroeC
-
-Equipo Villanos
-Integrantes:
-VillanoA//gano
-VillanoB
-VillanoC
-
-HeroeB vs VillanoB
-
-Gana HeroeB, por lo tanto no podra volver a pelear
-
-Ronda4 
-Equipo Heroes.
-Integrantes:
-HeroeA //gano
-HeroeB //gano
-HeroeC
-
-Equipo Villanos
-Integrantes:
-VillanoA//gano
-VillanoB
-VillanoC
-
-HeroeC vs VillanoB
-
-Gana HeroeC, como ya ganaron todos los integrantes de ese equipo
-El ganador de la pelea es el equipo de heroes.
-(En el caso de que haya menor cantidad de integrantes de un equipo
-que del otro, la cantidad de victorias necesarias sera igual a la cantidad
-de integrantes del equipo...//extraño pero capaz lo mejoro luego)
-
-La interfaz Group permitira que, a traves del patron composite, puede
-construir objetos mas complejos partiendo de otros mas sencillos. De esta 
-forma podremos, por ejemplo, crear un equipo a partir de personajes y/o equipos
-
-La clases Stats contendra los atributos de cada personaje(fuerza,agilidad,etc)
-que podran ser modificados segun las habilidades que posea dicho personaje
-
-La clase Ability es una clase abstracta que nos permitira crear nuevas habilidades
-que se le asginaran a cada personaje.
-Esta clase tendra un nombre y una descripcion.Ademas tendra un efecto 
-especial, por lo cual, modificara los stats de los personajes
-Ademas, esta clase permitira diferenciar entre habilidades heroicas y no heroicas
-De esta forma no podremos agregar habilidades heroicas a un villano
+whoBeatsByStat: Similar al anterior, pero con respecto a un atributo en particular
 
 
 
-La clase Character implementa Group para lo que explicamos previamente.
-Esta clase contendra el nombre real y nombre de heroe para reconocerlos .
-Tambien tendra un booleano que nos dira si el personaje es heroe o villano.
-Contendra un atributo de la clase Stats y una lista de Ability. Debido
-a que un heroe puede tener ninguna o muchas habilidades(no se pueden repetir)
+La clase Group es una interfaz que utiliza el patron composite para permitir crear equipos que contengan
+personajes y otros equipos.
 
-La clase Team nos permitira crear equipos de Character o Team utilizando 
-la interfaz group. La condicion para agregar elementos en un team son:
-Los bandos deben coincidir(equipo heroes contiene solo heroes), el nombre
-de un subequipo no puede ser el mismo que el del equipo y por ultimo 
-los personajes de un equipo no pueden repetirse 
+Esta interfaz es implementada por la clase Character y la clase Team
+
+La clase Character tiene como atributos: 
+Nombre real y ficticio
+Un booleano que nos dice si es heroe o villano
+Un atributo del tipo Stat(esta clase contiene los atributos comunes a todos los personajes que se creen)
+Un lista de tipo Ability(esta clase contiene habilidades unicas que se le pueden agregar a algunos personajes
+para modificar sus atributos comunes)
+
+Metodos:
+
+canAddCharacter: Se encarga de ver si el personaje que intentamos crear ya existe. Si es asi el constructor
+de Character arrojara una IllegalArgumentException
+
+addAbility: Añade determinada habilidad al personaje si este ya no la tiene o si no pertenece al bando
+indicado
+
+La clase Team tiene como atributos:
+Nombre del equipo
+Lista de tipo Group que contendra todos los integrantes de ese equipo
+Un booleano que indicara si el equipo es de heroes o villanos
+
+Metodos:
+addGroup: Añade el personaje o subequipo al equipo si se cumplen algunas condiciones:
+Si es un personaje, tiene que ser del mismo bando y no tiene que encontrarse ya en el equipo ya que en un
+equipo no puede encontrarse un personaje mas de 1 vez
+Si es un subequipo,el nombre no puede ser el mismo, deben ser del mismo bando y dicho subequipo no 
+puede tener a un personaje que se encuentre en el equipo
+
+refreshAllTeams: Se encarga de actualizar la lista de todos los equipos
+
+sortByCriteria: Retorna una lista de personajes ordenados teniendo en cuenta todos los criterios que se quieran
+En el caso de que haya campos iguales(teniendo en cuenta los criterios de orden), se decidira el orden por el 
+nombre ficticio ya que este es unico
+
+Para realizar este ordenamiento se utiliza la clase CharacterComparator que contiene las comparaciones a realizar
+para poder ordenar la lista de personajes
+
+La clase Ability es una clase Abstracta que permite crear habilidades unicas que se podran asignar a los 
+personajes
+
+Los atributos de esta clase son:
+Nombre 
+Descripcion 
+Un booleano que determina si la habilidad es heroica o no. Esto es asi debido a que las habilidades
+son para villanos o heroes.
+
+Despues, en cada clase hijo que creemos, tendremos que implementar el metodo abstracto refreshStats.
+Este metodo actualizara las estadisticas del personaje al que se le asigno la habilidad(tambien se 
+actualiza en la lista de todos los personajes)
+
+
+
+

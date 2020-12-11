@@ -262,6 +262,80 @@ public class TestGame {
 		Game.allCharacters.clear();
 		Game.allTeams.clear();
 	}
+	@Test
+	public void testWhoBeatsByStatOK() {
+		Character char1 = new Character("Izuku Midoriya","Deku",new Stats(10000,20000,10000,50000,50000,50000),true);
+		Character char2 = new Character("Toshinori Yagi","All Might",new Stats(100,100,1,1,1,1),true);
+		Character char3 = new Character("Ochaco Uraraka","Uravity",new Stats(100,100,150,50,50,100),true);
+		Character char4 = new Character("Fumikage Tokoyami","Jet-Black",new Stats(200,200,150,250,250,100),true);
+		
+		
+		
+		List<Group> result = new ArrayList<Group>();
+		List<Group> beatsChar = new ArrayList<Group>();
+		Team team1 = new Team ("XD",true);
+		team1.addGroup(char1);
+		team1.addGroup(char2);
+		beatsChar.add(char1);
+		beatsChar.add(char4);
+		beatsChar.add(team1);
+		
+		result = Game.whoBeatsByStat(char2,"AGL");
+		System.out.println(result);
+		
+		Assert.assertEquals(true,result.containsAll(beatsChar));
+		
+		Game.allCharacters.clear();
+		Game.allTeams.clear();
+	}
+	
+	@Test
+	public void testWhoBeatsByStatERRORSyntaxStat() {
+		Character char1 = new Character("Izuku Midoriya","Deku",new Stats(10000,20000,10000,50000,50000,50000),true);
+		Character char2 = new Character("Toshinori Yagi","All Might",new Stats(100,100,1,1,1,1),true);
+		Character char3 = new Character("Ochaco Uraraka","Uravity",new Stats(100,100,150,50,50,100),true);
+		Character char4 = new Character("Fumikage Tokoyami","Jet-Black",new Stats(200,200,150,250,250,100),true);
+		
+		
+		
+		List<Group> result = new ArrayList<Group>();
+		List<Group> beatsChar = new ArrayList<Group>();
+		Team team1 = new Team ("XD",true);
+		team1.addGroup(char1);
+		team1.addGroup(char2);
+		beatsChar.add(char1);
+		beatsChar.add(char4);
+		beatsChar.add(team1);
+		
+		result = Game.whoBeatsByStat(char2,"BANANA");
+		//System.out.println(result);
+		
+		Assert.assertEquals(null,result);
+		
+		Game.allCharacters.clear();
+		Game.allTeams.clear();
+	}
+	
+	@Test
+	public void testWhoBeatsByStatEmpty() {
+		Character char1 = new Character("Izuku Midoriya","Deku",new Stats(10000,20000,10000,50000,50000,50000),true);
+		Character char2 = new Character("Toshinori Yagi","All Might",new Stats(100,100,1,1,1,1),true);
+		Character char3 = new Character("Ochaco Uraraka","Uravity",new Stats(100,100,150,50,50,100),true);
+		Character char4 = new Character("Fumikage Tokoyami","Jet-Black",new Stats(200,200,150,250,250,100),true);
+		
+		
+		List<Group> result = new ArrayList<Group>();
+		
+		
+		result = Game.whoBeatsByStat(char1,"STR");
+		//System.out.println(result);
+		
+		Assert.assertEquals(true,result.isEmpty());
+		
+		Game.allCharacters.clear();
+		Game.allTeams.clear();
+	}
+
 
 
 }
