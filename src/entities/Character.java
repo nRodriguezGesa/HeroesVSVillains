@@ -56,16 +56,16 @@ public class Character implements Group{
 			ability.refreshStats(this.stats);
 			Game.allCharacters.add(this);
 			
-			System.out.println("Se ha agregado la habilidad " + ability.getName() + " para el personaje "+ this.aka);
+			//System.out.println("Se ha agregado la habilidad " + ability.getName() + " para el personaje "+ this.aka);
 			return true;
 		}
 		else if(result == 1) {
-			System.out.println("No se ha podido agregar la habilidad porque " + this.aka + " ya posee esta habilidad");
+			//System.out.println("No se ha podido agregar la habilidad porque " + this.aka + " ya posee esta habilidad");
 			return false;
 		}
 			
 		else {
-			System.out.println("No se ha podido agregar la habilidad porque " + this.aka + " no pertenece al mismo bando");
+			//System.out.println("No se ha podido agregar la habilidad porque " + this.aka + " no pertenece al mismo bando");
 			return false;
 		}
 			

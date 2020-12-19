@@ -284,9 +284,9 @@ public class TestTeam {
 		
 		
 		list2 = team1.sortByCriteria(cp);
-		System.out.println(list1);
-		System.out.println(team1);
-		System.out.println(list2);
+		//System.out.println(list1);
+		//System.out.println(team1);
+		//System.out.println(list2);
 		Assert.assertEquals(list1,list2);
 		
 		

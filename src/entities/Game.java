@@ -17,25 +17,25 @@ public class Game {
 	
 	public static Group  fight(Group g1,Group g2) {
 		if(g1.getSide() == g2.getSide()) {
-			System.out.println("No pueden luchar 2 equipos del mismo bando");
+			//System.out.println("No pueden luchar 2 equipos del mismo bando");
 			return null;
 		}
 		int result = resultFight(g1,g2);
-		System.out.println(g1.getFictionName() + " VS " + g2.getFictionName());
+		//System.out.println(g1.getFictionName() + " VS " + g2.getFictionName());
 		
 		if(result == 0) {
-			System.out.println("Empate");
+			//System.out.println("Empate");
 			return null;
 			
 		}
 			
 		if(result > 0) {
-			System.out.println("Gana " + g1.getFictionName());
+			//System.out.println("Gana " + g1.getFictionName());
 			return g1;
 		}
 			
 		else {
-			System.out.println("Gana " + g2.getFictionName());
+			//System.out.println("Gana " + g2.getFictionName());
 			return g2;
 		}
 			
@@ -74,7 +74,7 @@ public class Game {
 				
 		}
 		if(wrongString == 1) {
-			System.out.println("Error al ingresar un stat");
+			//System.out.println("Error al ingresar un stat");
 			return null;
 		}
 	
@@ -142,12 +142,12 @@ public class Game {
 				}
 			}
 			if(result < 0) {
-				System.out.println("Gana " + g2.getFictionName());
+				//System.out.println("Gana " + g2.getFictionName());
 				return g2;
 			}
 				
 			if(result > 0) {
-				System.out.println("Gana " + g1.getFictionName());
+				//System.out.println("Gana " + g1.getFictionName());
 				return g1;
 			}
 		
@@ -156,7 +156,7 @@ public class Game {
 	
 	public static List<Group> whoBeats(Character ch){
 		List<Group>beatsCharacter = new ArrayList<>();
-		System.out.println("Vencen a " + ch.getAka() +":");
+		//System.out.println("Vencen a " + ch.getAka() +":");
 		for(Character ch2 : Game.allCharacters) {
 			if(resultFight(ch,ch2)<0)
 				beatsCharacter.add(ch2);
@@ -175,7 +175,7 @@ public class Game {
 			return null;
 			
 		List<Group>beatsCharacter = new ArrayList<>();
-		System.out.println("Vencen a " + ch.getAka() +":");
+		//System.out.println("Vencen a " + ch.getAka() +":");
 		
 		for(Character ch2 : Game.allCharacters) {
 			if(resultFightByStat(ch,ch2,stat)==ch2)
@@ -200,7 +200,7 @@ public class Game {
 				
 		}
 		if(wrongString == 1) {
-			System.out.println("Error al ingresar un stat");
+			//System.out.println("Error al ingresar un stat");
 			return true;
 	
 		}
@@ -209,7 +209,7 @@ public class Game {
 	
 	private static boolean validSides(Group g1, Group g2) {
 		if(g1.getSide() == g2.getSide()) {
-			System.out.println("No pueden luchar 2 equipos del mismo bando");
+			//System.out.println("No pueden luchar 2 equipos del mismo bando");
 			return false;
 		}
 		return true;

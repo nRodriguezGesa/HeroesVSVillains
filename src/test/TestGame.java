@@ -256,7 +256,7 @@ public class TestGame {
 		List<Group> result = new ArrayList<Group>();
 		
 		result = Game.whoBeats(char1);
-		System.out.println(result);
+		//System.out.println(result);
 		Assert.assertEquals(true,result.isEmpty());
 		
 		Game.allCharacters.clear();
@@ -281,7 +281,7 @@ public class TestGame {
 		beatsChar.add(team1);
 		
 		result = Game.whoBeatsByStat(char2,"AGL");
-		System.out.println(result);
+		//System.out.println(result);
 		
 		Assert.assertEquals(true,result.containsAll(beatsChar));
 		

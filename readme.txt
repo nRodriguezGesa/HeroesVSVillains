@@ -39,7 +39,7 @@ Metodos:
 canAddCharacter: Se encarga de ver si el personaje que intentamos crear ya existe. Si es asi el constructor
 de Character arrojara una IllegalArgumentException
 
-addAbility: Añade determinada habilidad al personaje si este ya no la tiene o si no pertenece al bando
+addAbility: Añade determinada habilidad al personaje si este ya no la tiene o si pertenece al bando
 indicado
 
 La clase Team tiene como atributos:
